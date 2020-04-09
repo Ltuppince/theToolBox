@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom"
 import axios from "axios";
 import UserContext from "../utils/UserContext"
 // import { response } from "express";
@@ -7,8 +8,12 @@ export default function Login () {
 
   const [_email, _setEmail] = useState("")
   const [_password, _setPassword] = useState("")
-  // const [loginErrors, setLoginErrors] = useState("")
-  const { handleUpdate, test } = useContext(UserContext)
+
+  // use the custom handleUpdate method from UserContext.Provider in App component to update App state
+  const { handleUpdate } = useContext(UserContext)
+
+  // use the useHistory hook to programmatically navigate to a route
+  const history = useHistory()
 
   const handleChange = (event) => {
     switch(event.target.name) {
@@ -36,9 +41,14 @@ export default function Login () {
       .then((response) => {
         const { _id, email } = response.data
         console.log("res from login", response);
-        //   if (response.data.logged_in) {
-        //     this.props.handleSuccessfulAuth(response.data);
-        //   }
+        
+        handleUpdate({
+          _isLoggedIn: true,
+          _uId: _id,
+          _email: email
+        })
+
+        history.push("/")
       })
       .catch((error) => {
         console.log("login error", error);

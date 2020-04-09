@@ -11,15 +11,22 @@ import UserContext from "./utils/UserContext"
 function App() {
 
   const [_userState, _setUserSate] = useState({
-    isLoggedIn: false,
-    uId: null,
-    email: null
+    _isLoggedIn: false,
+    _uId: null,
+    _email: null
   })
+
+  const updateUserState = (updates) => {
+    _setUserSate({
+      ..._userState,
+      ...updates
+    })
+  }
 
   return (
     <Router>
-      <UserContext.Provider value={_userState}>
-        <NavTabs />
+      <UserContext.Provider value={{..._userState, handleUpdate: updateUserState}}>
+        <NavTabs isLoggedIn={_userState._isLoggedIn} email={_userState._email} uid={_userState._uId} />
         <Route exact path="/" component={HomePage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/registration" component={RegistrationPage} />
