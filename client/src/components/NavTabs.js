@@ -27,7 +27,7 @@ function NavTabs(props) {
       </li>
       <li className="nav-item">
         <Link
-          to="/directory"
+          to="/Directory"
           className={location.pathname === "/directory" ? "nav-link active" : "nav-link"}
         >
           Directory
@@ -41,6 +41,15 @@ function NavTabs(props) {
           Learn
         </Link>
       </li>
+      {props.isLoggedIn ?
+      <li className="nav-item">
+      <Link
+        to="/Portal"
+        className={location.pathname === "/portal" ? "nav-link disabled" : "nav-link"}
+      >
+        Portal
+      </Link>
+    </li> : ""}
       {
         !props.isLoggedIn ?
         (
@@ -64,7 +73,7 @@ function NavTabs(props) {
           </>
         ) : ""
       }
-      {/* {props.isLoggedIn && props.email ?(
+      {props.isLoggedIn && props.email ?(
         <li className="nav-item" style={{marginLeft: "auto"}}>
           <div style={{display: "flex", alignItems: "center"}}>
           Welcome,
@@ -78,7 +87,7 @@ function NavTabs(props) {
           !
           </div>
         </li>
-      ) : ""} */}
+      ) : ""}
     </ul>
   );
 }

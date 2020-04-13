@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom"
 import axios from "axios";
 import UserContext from "../utils/UserContext"
+import AppLandingPage from "../pages/PortalPage/Portal"
 // import { response } from "express";
 
 export default function Login () {
@@ -48,7 +49,7 @@ export default function Login () {
           _email: email
         })
 
-        history.push("/")
+        history.push("/portal")
       })
       .catch((error) => {
         console.log("login error", error);

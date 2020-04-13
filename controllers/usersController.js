@@ -28,5 +28,8 @@ module.exports = {
             })
 			.catch(err => res.status(422).json(err));
 	},
-    
+    companyData: (req, res) => {
+        const data = require("../models/mockdata/someCompany.json")
+        res.json(data)
+    }
 }
