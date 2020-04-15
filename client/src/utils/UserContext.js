@@ -4,7 +4,7 @@ const UserContext = createContext({
     isLoggedIn: false,
     uId: null,
     email: null,
-    test: "",
+    data: null,
     handleUpdate: () => {}
 
 });

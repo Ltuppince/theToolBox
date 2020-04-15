@@ -7,5 +7,8 @@ router.route('/register')
 router.route('/login')
     .post(usersController.login)
 
+router.route('/data')
+    .get(usersController.companyData)
+
 module.exports = router;
 
