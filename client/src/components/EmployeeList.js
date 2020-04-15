@@ -1,29 +1,18 @@
-import React from "react";
-// import data from "/api/users/data"
+import React from "react"
 
-function ListItem(props) {
-  // Correct! There is no need to specify the key here:
+function EmployeeList({ emp, listKey }) {
   return (
     <li>
-       <li> <strong>Department: {props.value.department}</strong></li>
+      <h3><strong>Department: {emp.department}</strong></h3>
       <ul>
-        <li>First Name: {props.value.firstName}</li>
-        <li>Last Name: {props.value.lastName}</li>
-        <li>Title: {props.value.title}</li>
-        <li>Office: {props.value.office}</li>
-        <li>Mobile: {props.value.mobile}</li>
+        <li key={`${listKey}-0`}>First Name: {emp.firstName}</li>
+        <li key={`${listKey}-1`}>Last Name: {emp.lastName}</li>
+        <li key={`${listKey}-2`}>Title: {emp.title}</li>
+        <li key={`${listKey}-3`}>Office: {emp.office}</li>
+        <li key={`${listKey}-4`}>Mobile: {emp.mobile}</li>
       </ul>
     </li>
-  );
-}
-
-function EmployeeList(props) {
-  console.log(props);
-  const employees = props.companyData.employees;
-  const listItems = employees.map((employee, i) => (
-    <ListItem value={employee} key={i} />
-  ));
-  return <ul>{listItems}</ul>;
+  )
 }
 
 export default EmployeeList;

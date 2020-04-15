@@ -26,7 +26,12 @@ module.exports = {
                 console.log({_id, email})
                 res.json({_id, email});
             })
-			.catch(err => res.status(422).json(err));
+            //.catch(err => res.status(422).json(err));
+            .catch(err => {
+                console.log(err.message)
+                // res.status(422).json()
+                res.json({error: err, message: err.message, status: 422})
+            })
 	},
     companyData: (req, res) => {
         const data = require("../models/mockdata/someCompany.json")

@@ -9,6 +9,8 @@ export default function Login () {
 
   const [_email, _setEmail] = useState("")
   const [_password, _setPassword] = useState("")
+  const [_isLoggedIn, _setIsLoggedIn] = useState(false)
+  const [_log, _setLog] = useState("")
 
   // use the custom handleUpdate method from UserContext.Provider in App component to update App state
   const { handleUpdate } = useContext(UserContext)
@@ -40,6 +42,9 @@ export default function Login () {
         { withCredentials: true }
       )
       .then((response) => {
+        if (response.data.status === 422) {
+          throw response.data
+        }
         const { _id, email } = response.data
         console.log("res from login", response);
         
@@ -49,10 +54,16 @@ export default function Login () {
           _email: email
         })
 
+        _setIsLoggedIn(true)
+        _setLog("Login successful! Redirecting...")
+
         history.push("/portal")
       })
-      .catch((error) => {
-        console.log("login error", error);
+      .catch((err) => {
+        const { error, message="There was an error. Check server logs.", status=422} = err
+        console.error(`Status: ${status} \nMessage: ${message}\nError: ${JSON.stringify(error, null, 4)}`);
+        _setIsLoggedIn(false)
+        _setLog(message)
       });
     event.preventDefault();
   }
@@ -77,7 +88,7 @@ export default function Login () {
           onChange={handleChange}
           required
         />
-        {/* <p style={{color: this.state.login.success ? "green" : "red"}}>{this.state.login.log}</p> */}
+        <p style={{color: _isLoggedIn ? "green" : "red"}}>{_log}</p>
         <button className="btn btn-info" type="submit">
           submit
         </button>

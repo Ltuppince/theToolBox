@@ -1,14 +1,17 @@
 import React from "react"
 import Jumbotron from "../../components/Jumbotron"
 import EmployeeList from "../../components/EmployeeList"
-import EmployeeData from "../someCompany"
 
-function Directory() {
+function Directory({ employeeData }) {
+    console.log(employeeData)
+    const paragraph = "Company paragraph goes here."
     return (
         <>
-           <Jumbotron></Jumbotron>
+           <Jumbotron title={employeeData.company_name} paragraph={paragraph} />
           <div className="container">
-            <EmployeeList companyData={EmployeeData}></EmployeeList>
+            <ul>
+            { employeeData.employees.map((emp, i) => <EmployeeList emp={emp} listKey={i} key={i} />)}
+            </ul>
           </div>
         </>
     )

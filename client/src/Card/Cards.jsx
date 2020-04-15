@@ -35,7 +35,7 @@ class Cards extends Component {
                     </div>
                     <div className="col-md-4">
                         <Card imgsrc={img6} title="Policies & Procedures" text="This area provides access to all company policies and procedures"
-                        href="http://www.reynolds.edu/policy/administrative.aspx"/>
+                        link="/policies"/>
                     </div>
                 </div>
                 

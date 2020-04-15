@@ -35,8 +35,10 @@ function App() {
   }, [_userState])
 
   useEffect(() => {
-    fetchUserData()
-  }, [])
+    if (_userState._isLoggedIn) {
+      fetchUserData()
+    }
+  }, [_userState._isLoggedIn])
 
   return (
     <Router>
@@ -47,7 +49,7 @@ function App() {
         <Route exact path="/registration" component={RegistrationPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/portal" component={Portal} />
-        <Route exact path="/directory" component={Directory} />
+        <Route exact path="/directory" render={() => <Directory employeeData={_userState._data} />}  />
         {/* <Route path="/contact" component={Contact} /> */}
       </UserContext.Provider>
     </Router>
