@@ -8,6 +8,8 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import Portal from "./pages/PortalPage/Portal"
 import UserContext from "./utils/UserContext"
 import Directory from "./pages/DirectoryPage/Directory"
+import LearnPage from "./pages/Learn/Learn"
+import PoliciesPage from "./pages/Policies/Policies";
 
 function App() {
 
@@ -50,6 +52,8 @@ function App() {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/portal" component={Portal} />
         <Route exact path="/directory" render={() => <Directory employeeData={_userState._data} />}  />
+        <Route exact path="/learn" component={LearnPage} />
+        <Route exact path="/policies" render={() => <PoliciesPage policiesData={_userState._data} />} />
         {/* <Route path="/contact" component={Contact} /> */}
       </UserContext.Provider>
     </Router>

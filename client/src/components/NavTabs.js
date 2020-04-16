@@ -35,14 +35,16 @@ function NavTabs(props) {
         Directory
       </Link>
     </li> : ""}
+
+    {props.isLoggedIn ?
       <li className="nav-item">
-        <Link
-          to="/contact/learn"
-          className={location.pathname === "/contact/learn" ? "nav-link active" : "nav-link"}
-        >
-          Learn
-        </Link>
-      </li>
+      <Link
+        to="/learn"
+        className={location.pathname === "/learn" ? "nav-link disabled" : "nav-link"}
+      >
+        Learn
+      </Link>
+    </li> : ""}
       {props.isLoggedIn ?
       <li className="nav-item">
       <Link
