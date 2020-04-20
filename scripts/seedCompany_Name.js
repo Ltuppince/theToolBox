@@ -1,0 +1,340 @@
+const mongoose = require("mongoose")
+const db = require("../models")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/toolbox")
+
+const companyDataSeed = [
+
+    //Company Name
+
+    {
+        "company_name": "Some Company, LLC",
+    },
+
+    //Company Employees
+
+    {
+        "department": "IT",
+        "firstName": "Admin",
+        "lastName": "",
+        "title": "Help Desk",
+        "office": "508-0607 ext.300",
+        "mobile": ""
+    },
+    {
+        "department": "Human Resource",
+        "firstName": "Seohui",
+        "lastName": "Choe",
+        "title": "HR Recruiter",
+        "office": "508-0607 ext.301",
+        "mobile": ""
+    },
+    {
+        "department": "IT",
+        "firstName": "Lorenzo",
+        "lastName": "Tuppince",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.305",
+        "mobile": "392-3628"
+    },
+    {
+        "department": "IT",
+        "firstName": "Yuri",
+        "lastName": "Tuppince",
+        "title": "Project Manager",
+        "office": "508-0607 ext.306",
+        "mobile": "977-0050"
+
+    },
+    {
+        "department": "IT",
+        "firstName": "John",
+        "lastName": "Brown",
+        "title": "Senior Developer",
+        "office": "508-0607 ext.307",
+        "mobile": "585-5598"
+    },
+    {
+        "department": "IT",
+        "firstName": "Maurice",
+        "lastName": "Webb",
+        "title": "Full Stack Developer",
+        "office": "508-0607 ext.308",
+        "mobile": "613-6341"
+    },
+    {
+        "department": "IT",
+        "firstName": "Scott",
+        "lastName": "Zinski",
+        "title": "Full Stack Developer",
+        "office": "508-0607 ext.309",
+        "mobile": "597-8686"
+    },
+    {
+        "department": "IT",
+        "firstName": "Jonathan",
+        "lastName": "Melin",
+        "title": "Full Stack Developer",
+        "office": "508-0607 ext.310",
+        "mobile": "446-3009"
+    },
+    {
+        "department": "IT",
+        "firstName": "Greg",
+        "lastName": "Smith",
+        "title": "Senior Developer",
+        "office": "508-0607 ext.311",
+        "mobile": "386-0706"
+    },
+    {
+        "department": "IT",
+        "firstName": "Brian",
+        "lastName": "Kilpatrick",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.312",
+        "mobile": "992-0683"
+    },
+    {
+        "department": "IT",
+        "firstName": "Randall",
+        "lastName": "Pharr",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.313",
+        "mobile": "367-4222"
+    },
+    {
+        "department": "IT",
+        "firstName": "Ben",
+        "lastName": "Ferriman",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.314",
+        "mobile": "952-8190"
+    },
+    {
+        "department": "IT",
+        "firstName": "Pam",
+        "lastName": "Deininger",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.315",
+        "mobile": "577-3366"
+    },
+    {
+        "department": "IT",
+        "firstName": "Jason",
+        "lastName": "Cagle",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.316",
+        "mobile": "484-7578"
+        
+    },
+    {
+        "department": "IT",
+        "firstName": "Marco",
+        "lastName": "Carrillo",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.317",
+        "mobile": "845-6287"
+        
+    },
+    {
+        "department": "IT",
+        "firstName": "Mariea",
+        "lastName": "Johnson",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.318",
+        "mobile": "653-6351"
+        
+    },
+    {
+        "department": "IT",
+        "firstName": "Patrick",
+        "lastName": "McDowell",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.319",
+        "mobile": "457-0911"
+    },
+    {
+        "department": "IT",
+        "firstName": "Christian",
+        "lastName": "Jones",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.320",
+        "mobile": "465-0927"
+    },
+    {
+        "department": "IT",
+        "firstName": "Gabby",
+        "lastName": "Jones",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.321",
+        "mobile": "957-0992"
+    },
+    {
+        "department": "IT",
+        "firstName": "John",
+        "lastName": "Sims",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.322",
+        "mobile": "277-9367"
+    },
+    {
+        "department": "IT",
+        "firstName": "Lauren",
+        "lastName": "Minton",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.323",
+        "mobile": "217-5650"
+    },
+    {
+        "department": "IT",
+        "firstName": "Madeline",
+        "lastName": "Jimenez",
+        "title": "Jr Full Stack Developer",
+        "office": "508-0607 ext.324",
+        "mobile": "614-5600"
+    },
+    
+    //Company Policies
+
+    {
+        "policyName": "Acceptable use policy",
+        "policyDetails": "Hardware, software, network services, and support provided by the organization for VPN or remote usage are for the exclusive purpose of performing or fulfilling job responsibilities. Use of these resources is contingent on your agreement to comply with this policy and directions for and/or restrictions of use of these resources as determined by IT personnel."
+    },
+    {
+        "policyName": "Password management policy",
+        "policyDetails": "Passwords must be complex, containing at least eight characters and a mixture of lowercase, uppercase, numbers, and punctuation characters. For instance, “B3llt0Wer!” should be used in place of “Belltower,” as it is considerably more secure."
+    },
+    {
+        "policyName": "Remote access policy",
+        "policyDetails": "Only users with a demonstrable business need to connect to company resources shall be provided with remote access capabilities. This will obviously apply to offsite workers by default, but onsite workers should be screened accordingly. Users with access to credit card data, for instance, may be ineligible for remote access capability if this would pose a security or financial risk. Users whose job responsibilities involve hands-on or face-to-face interaction may also be restricted from remote access privileges."
+    },
+    {
+        "policyName": "Email",
+        "policyDetails": "All email communications regarding business shall be made using the secured encrypted email addresses provided by company. There should never be use of personal email addresses to conduct company business or transmit data of any kind. "
+    },
+    {
+        "policyName": "USB drives /External hard drives",
+        "policyDetails": "Storing information on a USB drive or external hard drive is strictly prohibited without prior approval of the President/CEO or COO. If approval is granted, an inventory of approved device will be kept at the Help Desk. These devises will be returned to the Help Desk if the employee leaves the Agency.  "
+    },
+    {
+        "policyName": "System and Network Activities",
+        "policyDetails": "Violations of the rights of any person or company protected by copyright, trade secret, patent or other intellectual property, or similar laws or regulations, including, but not limited to, the installation or distribution of pirated or other software products that are not appropriately licensed for use by the company"
+        
+    },
+    {
+        "policyName": "Technical Support",
+        "policyDetails": "Technical support will be provided by the IT department during normal business hours for all Agency approved devices and software. After hours support is available under special circumstances and will be reviewed on a case by case basis. "
+        
+    },
+    {
+        "policyName": "Code of Ethics",
+        "policyDetails": "The top priority of this company is to further the public trust and be good stewards of public resources. Employees have a responsibility to encourage honesty, integrity, and ethics. The company will take disciplinary action up to and including termination if an employee’s behavior exhibits a lack of integrity or ethics. "
+        
+    },
+    {
+        "policyName": "Harassment",
+        "policyDetails": "The company is committed to having a diverse workforce with all employees being valued for their individual capabilities and contributions, complying with all federal, state, and local laws on equal employment opportunity, and providing a workplace free from interpersonal conduct that does not relate to the business. In particular, the hostile atmosphere created by remarks and/or animosity based on ethnic, racial, sexual, gender, national origin, marital status, disability, religious traits, pregnancy, unwelcome sexual advances, requests for sexual favors, or other similar conduct is not permitted."
+         
+    },
+    {
+        "policyName": "Sexual Harassment",
+        "policyDetails": "No supervisor or coworker shall explicitly or implicitly communicate that an employee’s submission to or rejection of sexual advances will in any way influence any personnel decision regarding that employee’s employment, evaluation, wages, advancement, assigned duties, shifts, or any other conditions of employment."
+        
+    },
+    {
+        "policyName": "Employment Date",
+        "policyDetails": "Employment shall become effective as of the date on which the employee officially begins the performance of the duties of the position. This shall include new employee orientation and training. So far as is practical, effective dates shall be established at the beginning of regular pay periods. "
+         
+    },
+    {
+        "policyName": "Breaks",
+        "policyDetails": "Employees may have two (2) fifteen (15) minute rest breaks per day which are included within the paid hours of work. Employees are required to take a thirty (30) minute meal break. The meal break does not count in the hours worked (unless the employee is scheduled to work through the meal break). Rest breaks may be used in conjunction with the meal break, as long as the total time does not exceed sixty (60) minutes per work day. Such breaks if taken must be used each day and may not accumulate from one shift or one day to another."
+        
+    },
+    {
+        "policyName": "Adjustments to Work Schedules",
+        "policyDetails": "Hours of work, schedules, and duty assignments within a work period are to be established by the Department Head. They may vary among employees and work units. Schedules may be adjusted to meet the Family and Medical Leave Act and Americans with Disabilities Act requirements. Permanent flexible work schedules are not allowed. However, with the approval of their supervisor, an employee’s work schedule may be adjusted. "
+        
+    },
+    {
+        "policyName": "Late Arrivals",
+        "policyDetails": "If an employee is unable to report for work or expects to be late, the employee must contact his supervisor as soon as possible but no later than the beginning of his or her scheduled work hour and provide the reason for his absence or tardiness. Paid leave may or may not be approved for such tardiness. If an employee has difficulty reaching his supervisor, he should leave a message on the supervisor’s telephone reporting his absence; after a message is left the employee must continue to attempt to contact the supervisor. The responsibility to notify a supervisor(s) about absences or about tardiness always rests with the employee."
+          
+    },
+    {
+        "policyName": "Absence without Leave ",
+        "policyDetails": "Absence without leave is defined as the failure to report for work without the approval of the employee's supervisor or department head. In addition, it includes the failure of an employee to report for work as expected at the end of an authorized leave. If the employee is unable to provide an adequate explanation upon the return to work for failing to get the proper approval for the absence, the employee may be subject to disciplinary action up to and including termination. All absences without leave will result in an hour for hour deduction in salary for non-exempt employees in addition to appropriate disciplinary action. Exempt employees may receive a one (1) day suspension without pay and/or appropriate disciplinary action."
+        
+    },
+    {
+        "policyName": "Benefits",
+        "policyDetails": "The company offers a comprehensive benefit package to all full-time and benefit eligible part-time employees in authorized positions. Plan information is available through the Human Resources Department. Employees have a specific annual open enrollment period to enroll or make changes to their benefit plans. Outside of this annual open enrollment period, changes may be made within 30 days of a qualifying lifestyle event (i.e., birth/adoption of a child, marriage, loss of other insurance, days of a qualifying lifestyle event (i.e., birth/adoption of a child, marriage, loss of other insurance, etc.) with the proper documentation."
+          
+    },
+    {
+        "policyName": "Group Health Plan Coverage",
+        "policyDetails": "Health plan coverage is provided through a program established by the Board of Supervisors. The terms of such plan(s) are subject to change as the Board may determine. The company requires that the payment for health care coverage be made as a payroll deduction; employees will have to authorize this deduction from their paycheck. The effective date of coverage will be the first of the month following the employee’s date of hire."
+        
+    },
+    {
+        "policyName": "Group Health Plan Continuation Coverage (COBRA)",
+        "policyDetails": "Employees who leave employment with the County but who do not retire, may elect to continue health care coverage for themselves and their family members, if the family members were enrolled at the time of separation, under the terms of COBRA. "
+        
+    },
+    {
+        "policyName": "Workers’ Compensation",
+        "policyDetails": "Workers’ Compensation benefits are provided to all employees. In the event of a work-related illness or injury, an employee should notify their supervisor immediately. The employee is responsible for calling The Company Nurse Injury Hotline the same day so that the necessary reports are filed. The phone number is posted on the County’s website under Human Resources. Additional information on Workers’ Compensation is found in the section X(A) of this policy. "
+        
+    },
+    {
+        "policyName": "Annual Leave",
+        "policyDetails": "Annual leave may be used for personal purposes. The use of annual leave must be approved and scheduled in advance by the supervisor and Department Head. No more than one hundred and twenty (120) hours of consecutive annual leave shall be taken at one time without the Administrator’s permission. "
+        
+    },
+    {
+        "policyName": "Family and Medical Leave",
+        "policyDetails": "The Family and Medical Leave Act of 1993 (“FMLA”) provides eligible employees up to twelve weeks (60 work days) or, in certain circumstances described within this policy, 26 weeks of unpaid job protected leave in any rolling 12-month period for certain family and medical reasons. The company uses a “rolling” 12-month period measured forward from the date the FMLA leave begins. FMLA is unpaid leave; however, the company will require an employee to use all but one week of accrued paid leave in conjunction with FMLA leave before being granted unpaid leave. All types of leave (accumulated sick, annual, compensatory, and workers’ compensation) will run  concurrently with FMLA."
+       
+    },
+    {
+        "policyName": "Bereavement Leave",
+        "policyDetails": "Bereavement leave is defined as leave with pay provided by the County that is granted to employees upon the death of a member of the immediate family. Immediate family for the purposes of bereavement leave is defined as: spouse, parent, son, daughter, brother, sister, grandparents, grandchildren, step-children, step-parents, guardian, and same relatives of spouse. "
+        
+    },
+    {
+        "policyName": "False Claims",
+        "policyDetails": "An employee who fraudulently obtains FMLA leave from the company is not protected by the Act's restoration or maintenance of health benefits provisions and will be subject to appropriate disciplinary action including discharge."
+        
+    },
+    {
+        "policyName": "Child Care",
+        "policyDetails": "Although discouraged, there may be times when an employee does not have child care arrangements. At such times, an employee whose presence is necessary for the operations of the department may bring a child to work for however long work duties are required. Approval must be obtained from the Department Head prior to any employee bringing his/her child to work for longer than a brief period of time."
+        
+    },
+    {
+        "policyName": "Inclement Weather Conditions and County Emergencies",
+        "policyDetails": "The decision to close offices will be made by the company Administrator. During times of emergency or inclement weather it is the responsibility of the employee to confirm when and where company facilities will be closed. Employees are advised to listen to local radio/TV announcements for notice if offices have not yet opened for the day. If you have any doubt, call your supervisor"
+        
+    },
+    {
+        "policyName": "Disciplinary Actions",
+        "policyDetails": "In the event that a non-probationary employee fails to meet acceptable standards of performance and behavior, the supervisor may choose one of several disciplinary actions, depending on the nature and seriousness of the problem. Any action other than reprimand should be taken only after consultation of the Director of Human Resources. Prior to all dismissals and in all other cases when practicable, the employee shall be given notice of the proposed action, reason for the action, and an opportunity to respond, prior to the disciplinary action being taken. "
+    
+    },
+    {
+        "policyName": "Jury Duty Policy",
+        "policyDetails": "Your employer provides paid leave when an employee must serve on a jury. You will be paid your normal salary or hourly compensation while you are on jury duty for up to 15 days in a calendar year. No overtime payments, if you are eligible for overtime pay, are made during the time that you serve on a jury."
+    
+    }
+    
+]
+
+db.Company.remove({})
+    .then( () => db.Company.collection.insertMany(companyDataSeed))
+    .then( (data) => {
+        console.log(`${data.result.n} records inserted!`)
+        process.exit(0)
+    })
+    .catch(error => {
+        console.error(error)
+        process.exit(1)
+    })
