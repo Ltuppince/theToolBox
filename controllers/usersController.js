@@ -37,4 +37,5 @@ module.exports = {
         const data = require("../models/mockdata/someCompany.json")
         res.json(data)
     }
+    
 }

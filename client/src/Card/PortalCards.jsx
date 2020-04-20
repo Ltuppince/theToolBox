@@ -8,7 +8,7 @@ import img4 from "../assets/IMG_2821.jpeg";
 import img5 from "../assets/IMG_2826.jpeg";
 import img6 from "../assets/IMG_2831.jpeg";
 
-class Cards extends Component {
+class PortalCards extends Component {
     render() {
         return(
             <div className="container-fluid d-flex justify-content-center">
@@ -44,4 +44,4 @@ class Cards extends Component {
     }
 }
 
-export default Cards;
+export default PortalCards;
