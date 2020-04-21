@@ -12,7 +12,8 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "seedUsers": "node scripts/seedUsersDB.js"
+    "seedUsers": "node scripts/seedUsersDB.js",
+    "seedCompany": "node scripts/seedCompanyDB.js"
   },
   "author": "",
   "license": "ISC",
