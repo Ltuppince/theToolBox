@@ -9,6 +9,8 @@ router.route('/login')
 
 router.route('/data')
     .get(usersController.companyData)
+router.route('/company/:uId')
+    .get(usersController.companyPolicies)
 
 module.exports = router;
 

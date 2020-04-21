@@ -36,6 +36,19 @@ module.exports = {
     companyData: (req, res) => {
         const data = require("../models/mockdata/someCompany.json")
         res.json(data)
+    },
+    companyPolicies: (req, res) => {
+        const { uId } = req.params
+        
+        db.Company.findOne({ uId })
+            .then(({ companyName, policies}) => {
+                console.log({ companyName, policies})
+                res.json({ companyName, policies })
+            })
+            .catch(err => {
+                console.log(err.message)
+                res.json({error: err, message: err.message, status: 422})
+            })
     }
     
 }

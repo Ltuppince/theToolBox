@@ -14,7 +14,7 @@ const Card = props => {
                 <p className="card-text text-secondary"> {props.text}</p>
                 {
                     props.link ?
-                    <Link target="_blank" to={props.link} className="btn btn-outline-info">more info</Link>
+                    <Link to={props.link} className="btn btn-outline-info">View</Link>
                     : <a target="_blank" href={props.href} className="btn btn-outline-info">more info</a>
                 }
             </div>

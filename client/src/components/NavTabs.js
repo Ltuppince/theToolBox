@@ -80,7 +80,7 @@ function NavTabs(props) {
       {props.isLoggedIn && props.email ?(
         <li className="nav-item" style={{marginLeft: "auto"}}>
           <div style={{display: "flex", alignItems: "center"}}>
-          Welcome,
+          Welcome, 
           <Link
             to={`user/${props.uid}`}
             className="nav-link"
