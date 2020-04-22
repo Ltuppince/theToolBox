@@ -25,7 +25,7 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 // Connect to the Mongo DB Step 2
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/toolbox");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://toolBoxHeroku:Giants08@ds137759.mlab.com:37759/heroku_d2fr5vks");
 
 // Start the API server
 app.listen(PORT, function() {
