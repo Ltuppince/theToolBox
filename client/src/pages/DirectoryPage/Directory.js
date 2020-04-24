@@ -4,10 +4,10 @@ import EmployeeList from "../../components/EmployeeList"
 
 function Directory({ employeeData }) {
     console.log(employeeData)
-    const paragraph = "Company paragraph goes here."
+    const paragraph = "Innovation and Excellence"
     return (
         <>
-           <Jumbotron title={employeeData.company_name} paragraph={paragraph} />
+           <Jumbotron title={employeeData.company_name} paragraph={paragraph}/>
           <div className="container">
             <ul>
             { employeeData.employees.map((emp, i) => <EmployeeList emp={emp} listKey={i} key={i} />)}
