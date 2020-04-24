@@ -1,0 +1,8 @@
+.toolbox{
+    width: 50vw;
+    
+}
+.center-container{
+    display:flex;
+    justify-content: center;
+}
