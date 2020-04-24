@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Card from "./CardUI"
+import "./card-style.css";
 
 import img1 from "../assets/Image 2-10-20 at 6.44 PM.jpeg";
 import img2 from "../assets/Image 2-5-20 at 1.11 PM.jpg";
