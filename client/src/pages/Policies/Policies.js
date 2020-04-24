@@ -32,7 +32,7 @@ function PoliciesPage({ policiesData }) {
       
         <>
         <h1>Policy data</h1>
-           <Jumbotron title={company && company.companyName } paragraph={paragraph} />
+           <Jumbotron title={"Global Technology , LLC "} paragraph={paragraph} />
           <div className="container">
             <ul>
             {company && company.policies.map((policy, i) => <PoliciesList policies={policy} listKey={i} key={i} />)}
