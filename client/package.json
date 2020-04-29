@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "aws s3 cp --recursive ./build://toolboxapp.s3-website-us-east-1.amazonaws.com",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

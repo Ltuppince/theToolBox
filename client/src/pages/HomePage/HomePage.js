@@ -7,7 +7,7 @@ function HomePage() {
   const paragraph = ""
   return (
     <>
-    <Jumbotron title={"Welcome To The Tool Box"} paragraph={paragraph}/>
+    <Jumbotron title={"Welcome To The TOOL BOX"} paragraph={paragraph}/>
     <div className="center-container">
     <img className="toolbox" src={toolbox} alt="toolbox logo"></img>
     </div>
