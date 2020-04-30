@@ -14,27 +14,27 @@ const PortalCards = () => {
         <div className="container-fluid d-flex justify-content-center">
             <div className="row">
                 <div className="col-md-4">
-                    <Card imgsrc={img1} title="Slack" text="Communication hub where team members can communicate and work together"
+                    <Card id="slack" imgsrc={img1} title="Slack" text="Communication hub where team members can communicate and work together"
                     href="https://app.slack.com/client/TPH967SKH/CPHKK8WB0/thread/C0109G9SJN8-1586373815.004900"/>
                 </div>
                 <div className="col-md-4">
-                    <Card imgsrc={img2} title="LinkedIn Learning" text="Learn the most in-demand business, tech, and creative skills from industry experts."
+                    <Card id="linkedinlearning" imgsrc={img2} title="LinkedIn Learning" text="Learn the most in-demand business, tech, and creative skills from industry experts."
                     href="https://www.linkedin.com/learning"/>
                 </div>
                 <div className="col-md-4">
-                    <Card imgsrc={img3} title="Smartsheet" text="Project management platform that aligns team members and technology"
+                    <Card id="smartsheet" imgsrc={img3} title="Smartsheet" text="Project management platform that aligns team members and technology"
                     href="https://app.smartsheet.com/b/home?_ga=2.55776811.1499499135.1532965904-1296233051.1529000033"/>
                 </div>
                 <div className="col-md-4">
-                    <Card imgsrc={img4} title="Zoom" text="Remote video conferencing for 1:1 and team meetings"
+                    <Card id="zoom" imgsrc={img4} title="Zoom" text="Remote video conferencing for 1:1 and team meetings"
                     href="https://us04web.zoom.us/join"/>
                 </div>
                 <div className="col-md-4">
-                    <Card imgsrc={img5} title="Payroll" text="View pay statements W2s, 1099s, and pay calendars"
+                    <Card id="payroll" imgsrc={img5} title="Payroll" text="View pay statements W2s, 1099s, and pay calendars"
                     href="https://my.adp.com/static/redbox/login.html"/>
                 </div>
                 <div className="col-md-4">
-                    <Card imgsrc={img6} title="Policies & Procedures" text="This area provides access to all company policies and procedures"
+                    <Card id="policiesprocedures" imgsrc={img6} title="Policies & Procedures" text="This area provides access to all company policies and procedures"
                     link="/policies"/>
                 </div>
             </div>

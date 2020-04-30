@@ -30,6 +30,7 @@
     "express-session": "^1.17.0",
     "fs": "0.0.1-security",
     "if-env": "^1.0.4",
+    "jquery": "^3.5.0",
     "mdbootstrap": "^4.15.0",
     "mongoose": "^5.3.16",
     "mongoose-unique-validator": "^2.0.3",
@@ -39,7 +40,7 @@
     "react-native-elements": "^1.2.7",
     "react-router-dom": "^5.1.2"
   },
-  "engines":{
+  "engines": {
     "node": "14.0.0"
   }
 }
