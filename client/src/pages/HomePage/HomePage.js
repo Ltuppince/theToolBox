@@ -1,6 +1,6 @@
 import React from "react"
 import Jumbotron from "../../components/Jumbotron"
-import toolbox from "../../assets/toolbox logo.jpeg"
+import toolbox from "../../assets/Toolbox Pic 5.jpg"
 import "./style.css"
 
 function HomePage() {
