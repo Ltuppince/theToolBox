@@ -18,7 +18,7 @@ const PortalCards = () => {
                     href="https://app.slack.com/client/TPH967SKH/CPHKK8WB0/thread/C0109G9SJN8-1586373815.004900"/>
                 </div>
                 <div className="col-md-4">
-                    <Card imgsrc={img2} title="LinkedIn Learning" text="Enhance Your Skills With Expert-Led, Online Video Tutorials"
+                    <Card imgsrc={img2} title="LinkedIn Learning" text="Learn the most in-demand business, tech, and creative skills from industry experts."
                     href="https://www.linkedin.com/learning"/>
                 </div>
                 <div className="col-md-4">

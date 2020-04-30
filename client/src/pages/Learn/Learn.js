@@ -6,8 +6,8 @@ import LearnCards from "../../Card/LearnCards";
 function LearnPage() {
     return(
         <>
-        <div className="container">
         <Jumbotron />
+        <div className="container">
         <LearnCards />
         </div>
         </>
