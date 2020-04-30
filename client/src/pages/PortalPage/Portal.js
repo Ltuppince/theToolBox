@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import Jumbotron from "../../components/Jumbotron";
 import SearchForm from "../../components/SearchForm";
 import PortalCards from "../../Card/PortalCards";
